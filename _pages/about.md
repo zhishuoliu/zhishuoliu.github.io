@@ -18,17 +18,23 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I am about to pursue a Master's degree in Applied Computational Science and Engineering at Imperial College London for the 2024-2025 academic year.
+I am a Master’s student in Applied Computational Science and Engineering at **Imperial College London** (2024–2025), with a strong academic foundation in applied mathematics, machine learning, and computer vision.
 
-Prior to this, I earned a BSc in Applied Mathematics with Information Computing from the University of Birmingham, graduating with 1st-class Honours (Sep. 2020 - Jun. 2024), and a dual degree from Jinan University (JNU) in Information and Computing Science, with a cumulative GPA of 3.96/4.25 (Ranked 7th out of 66).
+Previously, I earned a **BSc in Applied Mathematics with Information Computing** from the **University of Birmingham**, graduating with **First-Class Honours**, and a **dual degree in Information and Computing Science** from **Jinan University (JNU)**, where I ranked **7th out of 66** with a **GPA of 3.96/4.25**.
 
-I was an algorithm intern in the Virtual Human Division of the Central Research Institute at [CVTE](http://www.cvte.com/) (Guangzhou, China).
+My research interests lie at the intersection of **3D reconstruction**, **implicit surface modeling**, and **AIGC (AI-Generated Content)**. I am particularly focused on enabling machines to better perceive, understand, and represent **3D space**. To deepen my understanding of this field, I have self-studied **Stanford’s CS231A (Computer Vision: From 3D Reconstruction to Recognition)** and explored foundational topics in **SLAM** and **differentiable rendering**.
 
-My research interests include 3D reconstruction and AIGC. I am dedicated to improving the computer's ability to understand and represent 3D space. To deepen my understanding of these topics, I have self-studied the [CS231A](https://web.stanford.edu/class/cs231a/course_notes.html) course and relevant SLAM knowledge. Under the guidance of [Dr. Yizun Lin](https://cybsec.jnu.edu.cn/2023/1205/c39595a783433/page.htm), I completed my thesis titled "Efficient Mesh Reconstruction from 3D Gaussians with L1 Regularization and Pruning."
+In 2024, I completed a research thesis titled **"Efficient Mesh Reconstruction from 3D Gaussians with L1 Regularization and Pruning"**, supervised by [Dr. Yizun Lin](https://cybsec.jnu.edu.cn/2023/1205/c39595a783433/page.htm), which explored sparse representations for mesh reconstruction based on **Gaussian splatting techniques**.
+
+Previously, I interned as an **Algorithm Engineer** at the **Virtual Human Division** of the **Central Research Institute at [CVTE](http://www.cvte.com/)** in Guangzhou, China. During the internship, I worked on projects involving **LLM fine-tuning (via LoRA)** for stylized content generation, developed a **PPT-to-script generation API**, and contributed to **TTS data preparation pipelines**.
+
+More broadly, I enjoy combining **computational geometry**, **deep learning**, and **vision-based modeling**, and I am passionate about building systems that bridge the gap between **geometry and generation**.
+
+📫 Feel free to reach me at: ethanliu020@outlook.com
 
 # Research Experience
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Graduate Essay</div><img src='images/bge_cover.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Graduate Essay</div><img src='../images/3dgs.png' alt="3dgsL1" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [Efficient Mesh Reconstruction from 3D Gaussians with L1 Regularization and Pruning]([Boreas-OuO/SuGaRL1 (github.com)](https://github.com/Boreas-OuO/SuGaRL1))
