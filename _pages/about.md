@@ -34,7 +34,7 @@ More broadly, I enjoy combining **computational geometry**, **deep learning**, a
 
 # Research Experience
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Graduate Essay</div><img src='../images/3dgs.png' alt="3dgsL1" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Graduate Essay</div><img src='../images/3dgs.png' alt="3dgsL1" width="20%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [Efficient Mesh Reconstruction from 3D Gaussians with L1 Regularization and Pruning]([Boreas-OuO/SuGaRL1 (github.com)](https://github.com/Boreas-OuO/SuGaRL1))
@@ -45,11 +45,9 @@ More broadly, I enjoy combining **computational geometry**, **deep learning**, a
 
 We Implemented L1 regularization and updated the pruning strategy in SuGaR, achieving an ~18% reduction in training time and lower memory usage while maintaining accuracy.
 
+
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Summer Project</div><img src='images/bge_cover.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
-
-
-
 
 
 **DFT Triangle: A Novel Spectrogram Feature for Sharing-Price Prediction by CNN**
