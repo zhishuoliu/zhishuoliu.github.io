@@ -41,7 +41,7 @@ More broadly, I enjoy combining **computational geometry**, **deep learning**, a
 
 **Zhishuo Liu**, Yizun Lin
 
-[Paper](images/波浪能最大输出功率设计_5_1_2.pdf) / [Code]([Boreas-OuO/SuGaRL1 (github.com)](https://github.com/Boreas-OuO/SuGaRL1))
+[Paper](images/graduate_essay_v1_4.pdf) / [Code]([Boreas-OuO/SuGaRL1 (github.com)](https://github.com/Boreas-OuO/SuGaRL1))
 
 We Implemented L1 regularization and updated the pruning strategy in SuGaR, achieving an ~18% reduction in training time and lower memory usage while maintaining accuracy.
 
