@@ -7,8 +7,8 @@
 
 # Site Settings
 title                    : "Zhishuo Liu"
-description              : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. "
-repository               : "RayeRen/acad-homepage.github.io"
+description              : " "
+repository               : "https://zhishuoliu.github.io/"
 google_scholar_stats_use_cdn : true
 
 # google analytics
@@ -24,11 +24,11 @@ author:
   name             : "Zhishuo Liu | 刘致铄"
   avatar           : "images/avater.png"
   bio              : "Imperial College London"
-  location         : "Guangdong, China"
+  location         : "London, UK"
   employer         :
   pubmed           : 
   googlescholar    : 
-  email            : "zenithliu2@gmail.com"
+  email            : "ethanliu020@outlook.com | zl1924@ic.ac.uk"
   researchgate     :  # e.g., "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
