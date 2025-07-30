@@ -77,6 +77,17 @@ Xiaowen Zheng, **Zhishuo Liu**, Jia Lu, etc.
   </div>
 </div>
 
+<div class='paper-box'>
+  <div class='paper-box-image'>
+    <div><div class="badge">AI Fitness Coach</div><img src='images/Fit.GIF' alt="fitness" width="50%"></div>
+  </div>
+  <div class='paper-box-text' markdown="1">
+[ppt2scrip](https://gitee.com/diziliu/ad-adviser/blob/master/readme.md)  
+Zhishuo Liu
+ppt2script
+[Code](git@github.com:zhishuoliu/ppt2script.git)
+  </div>
+</div>
 ---
 
 ## Honors
