@@ -43,7 +43,7 @@ We implemented L1 regularization and updated the pruning strategy in SuGaR, achi
 
 <div class='paper-box'>
   <div class='paper-box-image'>
-    <div><div class="badge">Summer Project</div><img src='images/bge_cover.png' alt="sym" width="100%"></div>
+    <div><div class="badge">Summer Project</div><img src='../images/dfttri.jpg' alt="sym" width="100%"></div>
   </div>
   <div class='paper-box-text' markdown="1">
 **DFT Triangle: A Novel Spectrogram Feature for Sharing-Price Prediction by CNN**  
@@ -67,7 +67,7 @@ Zhishuo Liu, Zichen Wang, etc.
 
 <div class='paper-box'>
   <div class='paper-box-image'>
-    <div><div class="badge">AI Fitness Coach</div><img src='images/Fit.GIF' alt="fitness" width="50%"></div>
+    <div><div class="badge">AI Fitness Coach</div><img src='../images/aifit.gif' alt="fitness" width="50%"></div>
   </div>
   <div class='paper-box-text' markdown="1">
 [AI Fitness Coach](https://gitee.com/diziliu/ad-adviser/blob/master/readme.md)  
