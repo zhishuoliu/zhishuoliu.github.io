@@ -28,7 +28,6 @@ More broadly, I enjoy combining **computational geometry**, **deep learning**, a
 
 ## Research Experience
 
-### Graduate Thesis  
 <div class='paper-box'>
   <div class='paper-box-image'>
     <div><div class="badge">Graduate Essay</div><img src='../images/3dgs.png' alt="3dgsL1" width="50%"></div>
@@ -41,9 +40,7 @@ We implemented L1 regularization and updated the pruning strategy in SuGaR, achi
   </div>
 </div>
 
----
 
-### Summer Research Project  
 <div class='paper-box'>
   <div class='paper-box-image'>
     <div><div class="badge">Summer Project</div><img src='images/bge_cover.png' alt="sym" width="100%"></div>
@@ -55,11 +52,7 @@ Zhishuo Liu, Zichen Wang, etc.
   </div>
 </div>
 
----
 
-## Competitions & Projects
-
-### CUMCM 2022  
 <div class='paper-box'>
   <div class='paper-box-image'>
     <div><div class="badge">2022 CUMCM</div><img src='../images/wave_energy.png' alt="cumcm" width="50%"></div>
@@ -72,9 +65,6 @@ Zhishuo Liu, Zichen Wang, etc.
   </div>
 </div>
 
----
-
-### AI Fitness Coach  
 <div class='paper-box'>
   <div class='paper-box-image'>
     <div><div class="badge">AI Fitness Coach</div><img src='images/Fit.GIF' alt="fitness" width="50%"></div>
@@ -98,7 +88,6 @@ Xiaowen Zheng, **Zhishuo Liu**, Jia Lu, etc.
 - Nov. 2021, **3rd Prize** – Asia-Pacific Modeling Contest  
 - Oct. 2021, **3rd Prize** – Greater Bay Area Financial Math Modeling
 
----
 
 ## Scholarships
 
@@ -106,14 +95,10 @@ Xiaowen Zheng, **Zhishuo Liu**, Jia Lu, etc.
 -  Feb. 2023, **Rising Academic Star Special Scholarship** (Top 8%)  
 -  Oct. 2022 & Oct. 2021, **Second-Class Scholarship** (Top 7%)
 
----
-
 ## Internships
 
 - **Jul – Sept 2023**, Algorithm Intern – [CVTE Virtual Human Division](https://www.cvte.com/)
 - See [CV](/cv.pdf) for more details.
-
----
 
 ## About Me
 
