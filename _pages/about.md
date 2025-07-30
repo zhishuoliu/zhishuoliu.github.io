@@ -26,9 +26,9 @@ More broadly, I enjoy combining **computational geometry**, **deep learning**, a
 
 ---
 
-## 🧠 Research Experience
+## Research Experience
 
-### 🎓 Graduate Thesis  
+### Graduate Thesis  
 <div class='paper-box'>
   <div class='paper-box-image'>
     <div><div class="badge">Graduate Essay</div><img src='../images/3dgs.png' alt="3dgsL1" width="100%"></div>
@@ -43,7 +43,7 @@ We implemented L1 regularization and updated the pruning strategy in SuGaR, achi
 
 ---
 
-### ☀️ Summer Research Project  
+### Summer Research Project  
 <div class='paper-box'>
   <div class='paper-box-image'>
     <div><div class="badge">Summer Project</div><img src='images/bge_cover.png' alt="sym" width="100%"></div>
@@ -57,24 +57,24 @@ Zhishuo Liu, Zichen Wang, etc.
 
 ---
 
-## 🎯 Competitions & Projects
+## Competitions & Projects
 
-### 🥈 CUMCM 2022  
+### CUMCM 2022  
 <div class='paper-box'>
   <div class='paper-box-image'>
-    <div><div class="badge">2022 CUMCM</div><img src='images/cumcm_cover.png' alt="cumcm" width="100%"></div>
+    <div><div class="badge">2022 CUMCM</div><img src='../images/wave_energy.png' alt="cumcm" width="100%"></div>
   </div>
   <div class='paper-box-text' markdown="1">
 [2022 Contemporary Undergraduate Mathematical Contest in Modeling (CUMCM)](http://en.mcm.edu.cn/html_en/node/1adbb0bbfa58dfafe2b926539e17daf9.html)  
 **Zhishuo Liu**, Zhiqi Ma, Jiayi Wu  
 **National Second Prize**  
-[Certificate](images/CUMCM.JPG) / [Paper (PDF)](images/波浪能最大输出功率设计_5_1_2.pdf) / [Problem A](images/A题.pdf)
+[Certificate](images/CUMCM.JPG) / [Paper (PDF)](../images/波浪能最大输出功率设计.pdf) / [Problem A](images/A题.pdf)
   </div>
 </div>
 
 ---
 
-### 🏋️ AI Fitness Coach  
+### AI Fitness Coach  
 <div class='paper-box'>
   <div class='paper-box-image'>
     <div><div class="badge">AI Fitness Coach</div><img src='images/Fit.GIF' alt="fitness" width="100%"></div>
@@ -89,33 +89,33 @@ Xiaowen Zheng, **Zhishuo Liu**, Jia Lu, etc.
 
 ---
 
-## 🏆 Honors
+## Honors
 
-- 🥈 Oct. 2022, **2nd Prize (National Level)** – CUMCM  
-- 🥇 Oct. 2022, **1st Prize (Provincial Level)** – CUMCM  
-- 🥈 Jun. 2022, **Silver Award (University Level)** – Internet+ Innovation Competition  
-- ✅ Feb. 2022, **Successful Participant** – MCM/ICM  
-- 🥉 Nov. 2021, **3rd Prize** – Asia-Pacific Modeling Contest  
-- 🥉 Oct. 2021, **3rd Prize** – Greater Bay Area Financial Math Modeling
-
----
-
-## 🎓 Scholarships
-
-- 🏅 Oct. 2023, **First-Class Scholarship** (Top 1%)  
-- 🌟 Feb. 2023, **Rising Academic Star Special Scholarship** (Top 8%)  
-- 🏅 Oct. 2022 & Oct. 2021, **Second-Class Scholarship** (Top 7%)
+- Oct. 2022, **2nd Prize (National Level)** – CUMCM  
+- Oct. 2022, **1st Prize (Provincial Level)** – CUMCM  
+- Jun. 2022, **Silver Award (University Level)** – Internet+ Innovation Competition  
+- Feb. 2022, **Successful Participant** – MCM/ICM  
+- Nov. 2021, **3rd Prize** – Asia-Pacific Modeling Contest  
+- Oct. 2021, **3rd Prize** – Greater Bay Area Financial Math Modeling
 
 ---
 
-## 💼 Internships
+## Scholarships
+
+- Oct. 2023, **First-Class Scholarship** (Top 1%)  
+-  Feb. 2023, **Rising Academic Star Special Scholarship** (Top 8%)  
+-  Oct. 2022 & Oct. 2021, **Second-Class Scholarship** (Top 7%)
+
+---
+
+## Internships
 
 - **Jul – Sept 2023**, Algorithm Intern – [CVTE Virtual Human Division](https://www.cvte.com/)
 - See [CV](/cv.pdf) for more details.
 
 ---
 
-## 📌 About Me
+## About Me
 
 - **Skills**: Python, C/C++, MATLAB, R, PyTorch, TensorFlow, Linux, CUDA  
 - **Languages**: Mandarin (Native), English (Proficient)  
