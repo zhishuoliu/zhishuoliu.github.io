@@ -63,6 +63,17 @@ We implemented L1 regularization and updated the pruning strategy in SuGaR, achi
   </div>
 </div>
 
+<div class='paper-box'>
+  <div class='paper-box-image'>
+    <div><div class="badge">Summer Research</div><img src='../images/aging.jpg' alt="aging" width="50%"></div>
+  </div>
+  <div class='paper-box-text' markdown="1">
+**Aging Cause Analysis: Bayesian Analysis Based on Gompertz-Makeham Model**  
+**Zhishuo Liu**  
+*University of Birmingham Summer Research* (Jul 2023 - Oct 2023)  
+Collected mortality data and patient information for major aging-related diseases in the United States, organized into 5-year interval format, and calculated conditional probabilities and related indicators. Applied Bayesian formulas to assess the impact of curing these diseases on human life expectancy, fitted the Gompertz-Makeham model, and determined constant mortality rate intervals for these diseases through hypothesis testing.
+  </div>
+</div>
 
 <div class='paper-box'>
   <div class='paper-box-image'>
