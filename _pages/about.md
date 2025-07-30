@@ -26,6 +26,29 @@ More broadly, I enjoy combining **computational geometry**, **deep learning**, a
 
 ---
 
+## 🌍 Visitor Map
+
+<div class="visitor-map-section">
+  <div class="visitor-stats">
+    <div class="stat-item">
+      <span class="stat-label">Total Visitors:</span>
+      <span class="stat-value" id="visitor-count">0</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">Map Status:</span>
+      <span class="stat-value" id="map-status">Loading...</span>
+    </div>
+  </div>
+  
+  <div id="visitor-map" style="height: 400px; width: 100%; border-radius: 8px; margin: 20px 0;"></div>
+  
+  <div class="map-info">
+    <p><small>📍 This map shows the locations of recent visitors to my website. Your location will be added when you visit this page.</small></p>
+  </div>
+</div>
+
+---
+
 ## Research Experience
 
 <div class='paper-box'>
@@ -72,7 +95,7 @@ Zhishuo Liu, Zichen Wang, etc.
   <div class='paper-box-text' markdown="1">
 [AI Fitness Coach](https://gitee.com/diziliu/ad-adviser/blob/master/readme.md)  
 Xiaowen Zheng, **Zhishuo Liu**, Jia Lu, etc.  
-**Silver Award (University Level)** – Internet+ Innovation Competition  
+**Silver Award** – Internet+ Innovation Competition  
 [Certificate](images/internet+.jpg) / [Code](https://gitee.com/diziliu/ad-adviser)
   </div>
 </div>

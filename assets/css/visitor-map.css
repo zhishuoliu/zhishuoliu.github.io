@@ -1,0 +1,140 @@
+/* Visitor Map Styles */
+
+.visitor-map-section {
+    margin: 30px 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.visitor-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stat-label {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 14px;
+}
+
+.stat-value {
+    font-weight: bold;
+    color: #e74c3c;
+    font-size: 16px;
+}
+
+#visitor-map {
+    border: 2px solid #ecf0f1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+#visitor-map:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.map-info {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.map-info p {
+    color: #7f8c8d;
+    font-style: italic;
+    margin: 0;
+}
+
+/* Visitor marker styles */
+.visitor-marker {
+    transition: all 0.3s ease;
+}
+
+.visitor-marker:hover {
+    transform: scale(1.2);
+}
+
+/* Popup styles */
+.visitor-popup {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    padding: 5px;
+}
+
+.visitor-popup h4 {
+    margin: 0 0 8px 0;
+    color: #2c3e50;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.visitor-popup p {
+    margin: 4px 0;
+    font-size: 12px;
+    color: #7f8c8d;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .visitor-stats {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .stat-item {
+        justify-content: space-between;
+    }
+    
+    #visitor-map {
+        height: 300px !important;
+    }
+    
+    .visitor-map-section {
+        padding: 15px;
+        margin: 20px 0;
+    }
+}
+
+/* Loading animation */
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+#map-status:contains("Loading") {
+    animation: pulse 1.5s infinite;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .visitor-map-section {
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    }
+    
+    .stat-item {
+        background: rgba(255, 255, 255, 0.1);
+        color: #ecf0f1;
+    }
+    
+    .stat-label {
+        color: #ecf0f1;
+    }
+    
+    .map-info p {
+        color: #bdc3c7;
+    }
+} 
