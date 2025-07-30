@@ -62,7 +62,7 @@ Zhishuo Liu, Zichen Wang, etc.
 ### CUMCM 2022  
 <div class='paper-box'>
   <div class='paper-box-image'>
-    <div><div class="badge">2022 CUMCM</div><img src='../images/wave_energy.png' alt="cumcm" width="100%"></div>
+    <div><div class="badge">2022 CUMCM</div><img src='../images/wave_energy.png' alt="cumcm" width="50%"></div>
   </div>
   <div class='paper-box-text' markdown="1">
 [2022 Contemporary Undergraduate Mathematical Contest in Modeling (CUMCM)](http://en.mcm.edu.cn/html_en/node/1adbb0bbfa58dfafe2b926539e17daf9.html)  
