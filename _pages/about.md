@@ -43,7 +43,7 @@ We implemented L1 regularization and updated the pruning strategy in SuGaR, achi
 
 <div class='paper-box'>
   <div class='paper-box-image'>
-    <div><div class="badge">Summer Project</div><img src='../images/dfttri.jpg' alt="sym" width="100%"></div>
+    <div><div class="badge">Summer Project</div><img src='../images/dfttri.jpg' alt="sym" width="50%"></div>
   </div>
   <div class='paper-box-text' markdown="1">
 **DFT Triangle: A Novel Spectrogram Feature for Sharing-Price Prediction by CNN**  
