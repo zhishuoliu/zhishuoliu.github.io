@@ -1,0 +1,19 @@
+{
+  "name": "visitor-map-backend",
+  "version": "1.0.0",
+  "description": "Backend for visitor map functionality",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "mongodb": "^5.7.0"
+  },
+  "devDependencies": {
+    "vercel": "^32.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+} 

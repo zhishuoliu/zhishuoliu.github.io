@@ -1,10 +1,11 @@
-// Visitor Map functionality using Leaflet.js
+// Visitor Map functionality using Leaflet.js with backend API
 class VisitorMap {
     constructor(containerId) {
         this.containerId = containerId;
         this.map = null;
         this.markers = [];
         this.visitorData = [];
+        this.apiUrl = 'https://vercel-backend-9w0hni4ja-zhishuo-lius-projects.vercel.app/api/visitors';
         
         // Initialize map when DOM is loaded
         if (document.readyState === 'loading') {
@@ -29,8 +30,8 @@ class VisitorMap {
 
             this.updateMapStatus('Loading visitor data...');
             
-            // Load existing visitor data
-            this.loadVisitorData();
+            // Load existing visitor data from API
+            await this.loadVisitorData();
             
             // Get current visitor's location and add to map
             await this.addCurrentVisitor();
@@ -69,11 +70,11 @@ class VisitorMap {
             const visitorInfo = await this.getVisitorLocation();
             
             if (visitorInfo && visitorInfo.lat && visitorInfo.lng) {
+                // Save visitor data to backend
+                await this.saveVisitorData(visitorInfo);
+                
                 // Add marker to map
                 this.addVisitorMarker(visitorInfo);
-                
-                // Save visitor data
-                this.saveVisitorData(visitorInfo);
                 
                 // Update visitor count
                 this.updateVisitorCount();
@@ -157,8 +158,32 @@ class VisitorMap {
         this.markers.push(marker);
     }
 
-    saveVisitorData(visitorInfo) {
-        // Get existing data from localStorage
+    async saveVisitorData(visitorInfo) {
+        try {
+            const response = await fetch(this.apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(visitorInfo)
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const result = await response.json();
+            console.log('Visitor data saved:', result);
+            
+        } catch (error) {
+            console.error('Error saving visitor data to backend:', error);
+            // Fallback to localStorage if backend fails
+            this.saveToLocalStorage(visitorInfo);
+        }
+    }
+
+    saveToLocalStorage(visitorInfo) {
+        // Fallback method using localStorage
         let existingData = [];
         try {
             const stored = localStorage.getItem('visitorMapData');
@@ -169,15 +194,12 @@ class VisitorMap {
             console.error('Error loading stored visitor data:', error);
         }
 
-        // Add new visitor data
         existingData.push(visitorInfo);
         
-        // Keep only last 100 visitors to avoid storage issues
         if (existingData.length > 100) {
             existingData = existingData.slice(-100);
         }
 
-        // Save back to localStorage
         try {
             localStorage.setItem('visitorMapData', JSON.stringify(existingData));
             this.visitorData = existingData;
@@ -186,13 +208,40 @@ class VisitorMap {
         }
     }
 
-    loadVisitorData() {
+    async loadVisitorData() {
+        try {
+            const response = await fetch(`${this.apiUrl}?limit=50`);
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            this.visitorData = data.visitors;
+            
+            // Update stats
+            this.updateStats(data.stats);
+            
+            // Add markers for visitors
+            this.visitorData.forEach(visitor => {
+                if (visitor.lat && visitor.lng) {
+                    this.addVisitorMarker(visitor);
+                }
+            });
+            
+        } catch (error) {
+            console.error('Error loading visitor data from API:', error);
+            // Fallback to localStorage
+            this.loadFromLocalStorage();
+        }
+    }
+
+    loadFromLocalStorage() {
         try {
             const stored = localStorage.getItem('visitorMapData');
             if (stored) {
                 this.visitorData = JSON.parse(stored);
                 
-                // Add markers for existing visitors (limit to last 20 for performance)
                 const recentVisitors = this.visitorData.slice(-20);
                 recentVisitors.forEach(visitor => {
                     if (visitor.lat && visitor.lng) {
@@ -209,6 +258,38 @@ class VisitorMap {
         const countElement = document.getElementById('visitor-count');
         if (countElement) {
             countElement.textContent = this.visitorData.length;
+        }
+    }
+
+    updateStats(stats) {
+        const countElement = document.getElementById('visitor-count');
+        if (countElement && stats) {
+            countElement.textContent = stats.total;
+        }
+        
+        // Add more stats if needed
+        const statsContainer = document.querySelector('.visitor-stats');
+        if (statsContainer && stats) {
+            // Add countries and cities stats if they don't exist
+            if (!document.getElementById('countries-count')) {
+                const countriesItem = document.createElement('div');
+                countriesItem.className = 'stat-item';
+                countriesItem.innerHTML = `
+                    <span class="stat-label">Countries:</span>
+                    <span class="stat-value" id="countries-count">${stats.countries}</span>
+                `;
+                statsContainer.appendChild(countriesItem);
+            }
+            
+            if (!document.getElementById('cities-count')) {
+                const citiesItem = document.createElement('div');
+                citiesItem.className = 'stat-item';
+                citiesItem.innerHTML = `
+                    <span class="stat-label">Cities:</span>
+                    <span class="stat-value" id="cities-count">${stats.cities}</span>
+                `;
+                statsContainer.appendChild(citiesItem);
+            }
         }
     }
 }

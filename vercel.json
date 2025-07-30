@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "functions": {
+    "api/visitors.js": {
+      "maxDuration": 10
+    }
+  },
+  "routes": [
+    {
+      "src": "/api/visitors",
+      "dest": "/api/visitors.js"
+    }
+  ]
+} 
