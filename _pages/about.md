@@ -31,7 +31,7 @@ More broadly, I enjoy combining **computational geometry**, **deep learning**, a
 ### Graduate Thesis  
 <div class='paper-box'>
   <div class='paper-box-image'>
-    <div><div class="badge">Graduate Essay</div><img src='../images/3dgs.png' alt="3dgsL1" width="100%"></div>
+    <div><div class="badge">Graduate Essay</div><img src='../images/3dgs.png' alt="3dgsL1" width="50%"></div>
   </div>
   <div class='paper-box-text' markdown="1">
 **[Efficient Mesh Reconstruction from 3D Gaussians with L1 Regularization and Pruning](https://github.com/Boreas-OuO/SuGaRL1)**  
@@ -77,7 +77,7 @@ Zhishuo Liu, Zichen Wang, etc.
 ### AI Fitness Coach  
 <div class='paper-box'>
   <div class='paper-box-image'>
-    <div><div class="badge">AI Fitness Coach</div><img src='images/Fit.GIF' alt="fitness" width="100%"></div>
+    <div><div class="badge">AI Fitness Coach</div><img src='images/Fit.GIF' alt="fitness" width="50%"></div>
   </div>
   <div class='paper-box-text' markdown="1">
 [AI Fitness Coach](https://gitee.com/diziliu/ad-adviser/blob/master/readme.md)  
