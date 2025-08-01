@@ -42,7 +42,8 @@ Developed a novel 3D primitive-based shape reconstruction system integrating sup
   </div>
   <div class='paper-box-text' markdown="1">
 **[Efficient Mesh Reconstruction from 3D Gaussians with L1 Regularization and Pruning](https://github.com/Boreas-OuO/SuGaRL1)**  
-**Zhishuo Liu**, Yizun Lin  
+**Zhishuo Liu**
+*Supervised by Dr.Yizun Lin*
 [PDF](../docs/graduate_essay_v1_4.pdf) / [Code](https://github.com/Boreas-OuO/SuGaRL1)  
 We implemented L1 regularization and updated the pruning strategy in SuGaR, achieving an ~18% reduction in training time and lower memory usage while maintaining accuracy.
   </div>
@@ -62,15 +63,18 @@ Collected mortality data and patient information for major aging-related disease
 
 <div class='paper-box'>
   <div class='paper-box-image'>
-    <div><div class="badge">Summer Project</div><img src='../images/dfttri.jpg' alt="sym" width="50%"></div>
+    <div><div class="badge">DFT-Tri</div><img src='../images/dfttri.jpg' alt="sym" width="50%"></div>
   </div>
   <div class='paper-box-text' markdown="1">
-**DFT Triangle: A Novel Spectrogram Feature for Sharing-Price Prediction by CNN**  
+**DFT Triangle: A Novel Spectrogram Feature for Stock Price Prediction by CNN**  
 Zhishuo Liu, Zichen Wang, etc.  
+**Abstract**: Proposed a novel frequency-domain feature called DFT-triangle for stock price prediction, addressing the limitation of traditional DFT where similar price series exhibit distinct frequency features. The method stacks price series into 2D matrices with transferred frequency features, forming triangular patterns in scale-frequency coordinates. Evaluated on 470 stocks using CNN, DFT-triangle outperformed advanced sequential networks (Attention-LSTM, CNN-LSTM) and traditional econometric models (AR, ARIMA) in stock forecasting accuracy.  
 [Code](https://github.com/Boreas-OuO/eel-dft)
   </div>
 </div>
 
+
+## Projects
 
 <div class='paper-box'>
   <div class='paper-box-image'>
@@ -80,11 +84,10 @@ Zhishuo Liu, Zichen Wang, etc.
 [2022 Contemporary Undergraduate Mathematical Contest in Modeling (CUMCM)](http://en.mcm.edu.cn/html_en/node/1adbb0bbfa58dfafe2b926539e17daf9.html)  
 **Zhishuo Liu**, Zhiqi Ma, Jiayi Wu  
 **National Second Prize**  
-[Certificate](images/CUMCM.JPG) / [Paper (PDF)](../docs/波浪能最大输出功率设计.pdf) / [Problem A](images/A题.pdf)
+**Abstract**: Developed a physics-based dynamic model for wave energy capture devices using Newton's laws and nonlinear differential equations. Implemented optimization algorithms to maximize energy conversion efficiency, achieving 163.8W output power with optimal damping coefficient. The system demonstrates stable periodic power output with 7% efficiency increase per 1% frequency rise.  
+[Certificate](images/CUMCM.JPG) / [Paper (PDF)](../images/波浪能最大输出功率设计.pdf) / [Problem A](images/A题.pdf)
   </div>
 </div>
-
-## Project
 
 <div class='paper-box'>
   <div class='paper-box-image'>
@@ -110,7 +113,7 @@ A Flask-based web service that converts PowerPoint presentations into natural sp
 [Code](https://github.com/zhishuoliu/ppt2script) / [Demo](https://github.com/zhishuoliu/ppt2script)
   </div>
 </div>
----
+
 
 ## Internship
 
