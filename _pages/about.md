@@ -10,11 +10,9 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I am a Master’s student in Applied Computational Science and Engineering at **Imperial College London** (2024–2025), with a strong academic foundation in applied mathematics, machine learning, and computer vision.
+I am a Master’s student in Applied Computational Science and Engineering at **Imperial College London** (2024–2025). Before this, I earned a **BSc in Applied Mathematics with Information Computing** from the **University of Birmingham**, graduating with **First-Class Honours**, and a **dual degree in Information and Computing Science** from **Jinan University (JNU)**, where I ranked **7th out of 66** with a **GPA of 3.96/4.25**.
 
-Previously, I earned a **BSc in Applied Mathematics with Information Computing** from the **University of Birmingham**, graduating with **First-Class Honours**, and a **dual degree in Information and Computing Science** from **Jinan University (JNU)**, where I ranked **7th out of 66** with a **GPA of 3.96/4.25**.
-
-My research interests lie at the intersection of **3D reconstruction**, **implicit surface modeling**, and **AIGC (AI-Generated Content)**. I am particularly focused on enabling machines to better perceive, understand, and represent **3D space**. To deepen my understanding of this field, I have self-studied **Stanford’s CS231A** and explored foundational topics in **SLAM** and **differentiable rendering**.
+My research interests lie at the intersection of **3D reconstruction**, **3D rendering**, and **AIGC**. I am particularly focused on enabling machines to better perceive, understand, and represent **3D space**. 
 
 In 2024, I completed a research thesis titled **"Efficient Mesh Reconstruction from 3D Gaussians with L1 Regularization and Pruning"**, supervised by [Dr. Yizun Lin](https://cybsec.jnu.edu.cn/2023/1205/c39595a783433/page.htm), which explores sparse representations for mesh reconstruction based on **Gaussian splatting techniques**.
 
@@ -133,17 +131,6 @@ ppt2script
 ## 🌍 Visitor Map
 
 <div class="visitor-map-section">
-  <div class="visitor-stats">
-    <div class="stat-item">
-      <span class="stat-label">Total Visitors:</span>
-      <span class="stat-value" id="visitor-count">0</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-label">Map Status:</span>
-      <span class="stat-value" id="map-status">Loading...</span>
-    </div>
-  </div>
-  
   <div id="visitor-map" style="height: 400px; width: 100%; border-radius: 8px; margin: 20px 0;"></div>
   
   <div class="map-info">
