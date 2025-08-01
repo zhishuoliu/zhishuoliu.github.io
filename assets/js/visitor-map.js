@@ -17,8 +17,6 @@ class VisitorMap {
 
     async init() {
         try {
-            this.updateMapStatus('Initializing...');
-            
             // Initialize the map
             this.map = L.map(this.containerId).setView([20, 0], 2);
             
@@ -28,44 +26,19 @@ class VisitorMap {
                 maxZoom: 18
             }).addTo(this.map);
 
-            this.updateMapStatus('Loading visitor data...');
-            
             // Load existing visitor data from API
             await this.loadVisitorData();
             
             // Get current visitor's location and add to map
             await this.addCurrentVisitor();
             
-            this.updateMapStatus('Ready');
-            
         } catch (error) {
             console.error('Error initializing visitor map:', error);
-            this.updateMapStatus('Error loading map');
-        }
-    }
-
-    updateMapStatus(status) {
-        const statusElement = document.getElementById('map-status');
-        if (statusElement) {
-            statusElement.textContent = status;
-            statusElement.className = 'stat-value';
-            
-            if (status === 'Loading...' || status === 'Initializing...' || status === 'Loading visitor data...') {
-                statusElement.style.animation = 'pulse 1.5s infinite';
-            } else if (status === 'Ready') {
-                statusElement.style.animation = 'none';
-                statusElement.style.color = '#27ae60';
-            } else if (status === 'Error loading map') {
-                statusElement.style.animation = 'none';
-                statusElement.style.color = '#e74c3c';
-            }
         }
     }
 
     async addCurrentVisitor() {
         try {
-            this.updateMapStatus('Getting your location...');
-            
             // Get visitor's IP and location
             const visitorInfo = await this.getVisitorLocation();
             
@@ -75,17 +48,9 @@ class VisitorMap {
                 
                 // Add marker to map
                 this.addVisitorMarker(visitorInfo);
-                
-                // Update visitor count
-                this.updateVisitorCount();
-                
-                this.updateMapStatus('Location added!');
-            } else {
-                this.updateMapStatus('Location unavailable');
             }
         } catch (error) {
             console.error('Error adding current visitor:', error);
-            this.updateMapStatus('Location error');
         }
     }
 
@@ -149,7 +114,6 @@ class VisitorMap {
         const popupContent = `
             <div class="visitor-popup">
                 <h4>🌍 Visitor from ${visitorInfo.city}, ${visitorInfo.country}</h4>
-                <p><strong>IP:</strong> ${visitorInfo.ip}</p>
                 <p><strong>Time:</strong> ${new Date(visitorInfo.timestamp).toLocaleString()}</p>
             </div>
         `;
@@ -219,9 +183,6 @@ class VisitorMap {
             const data = await response.json();
             this.visitorData = data.visitors;
             
-            // Update stats
-            this.updateStats(data.stats);
-            
             // Add markers for visitors
             this.visitorData.forEach(visitor => {
                 if (visitor.lat && visitor.lng) {
@@ -251,45 +212,6 @@ class VisitorMap {
             }
         } catch (error) {
             console.error('Error loading visitor data:', error);
-        }
-    }
-
-    updateVisitorCount() {
-        const countElement = document.getElementById('visitor-count');
-        if (countElement) {
-            countElement.textContent = this.visitorData.length;
-        }
-    }
-
-    updateStats(stats) {
-        const countElement = document.getElementById('visitor-count');
-        if (countElement && stats) {
-            countElement.textContent = stats.total;
-        }
-        
-        // Add more stats if needed
-        const statsContainer = document.querySelector('.visitor-stats');
-        if (statsContainer && stats) {
-            // Add countries and cities stats if they don't exist
-            if (!document.getElementById('countries-count')) {
-                const countriesItem = document.createElement('div');
-                countriesItem.className = 'stat-item';
-                countriesItem.innerHTML = `
-                    <span class="stat-label">Countries:</span>
-                    <span class="stat-value" id="countries-count">${stats.countries}</span>
-                `;
-                statsContainer.appendChild(countriesItem);
-            }
-            
-            if (!document.getElementById('cities-count')) {
-                const citiesItem = document.createElement('div');
-                citiesItem.className = 'stat-item';
-                citiesItem.innerHTML = `
-                    <span class="stat-label">Cities:</span>
-                    <span class="stat-value" id="cities-count">${stats.cities}</span>
-                `;
-                statsContainer.appendChild(citiesItem);
-            }
         }
     }
 }
