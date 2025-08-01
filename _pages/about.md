@@ -10,7 +10,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I am a Master’s student in Applied Computational Science and Engineering at **Imperial College London** (2024–2025). Before this, I earned a **BSc in Applied Mathematics with Information Computing** from the **University of Birmingham**, graduating with **First-Class Honours**, and a **dual degree in Information and Computing Science** from **Jinan University (JNU)**, where I ranked **7th out of 66** with a **GPA of 3.96/4.25**.
+I am a Master's student in **Applied Computational Science and Engineering** at **Imperial College London** (2024–2025), currently conducting an **Individual Research Project (IRP)** in collaboration with **Google**, supervised by **Dr. Hide Matsuki**. Before this, I earned a **BSc in Applied Mathematics with Information Computing** from the **University of Birmingham**, graduating with **First-Class Honours**, and a **dual degree in Information and Computing Science** from **Jinan University (JNU)**, where I ranked **7th out of 66** with a **GPA of 3.96/4.25**.
 
 My research interests lie at the intersection of **3D reconstruction**, **implicit surface modeling**, and **AIGC (AI-Generated Content)**. I am particularly focused on enabling machines to better perceive, understand, and represent **3D space**. To deepen my understanding of this field, I have self-studied **Stanford's CS231A** and explored foundational topics in **SLAM** and **differentiable rendering**.
 
@@ -31,7 +31,8 @@ More broadly, I enjoy combining **computational geometry**, **deep learning**, a
   <div class='paper-box-text' markdown="1">
 **[Learning Compositions of Primitives for 3D Shape Representation](https://github.com/kxhit/sdf-primitive)**  
 **Zhishuo Liu**  
-*Supervised by Dr. Hide Matsuki, Google* (Feb 2025 – Present)  
+*Individual Research Project (IRP) - Industry-Academia Collaboration*  
+*Supervised by Dr. Hide Matsuki, Google (Feb 2025 – Present)  
 Developed a novel 3D primitive-based shape reconstruction system integrating superquadrics and signed distance field learning. Reproduced methods from papers such as SuperDec and used a transformer-based point cloud clustering approach to guide primitive fitting for improved 3D shape representation and reconstruction accuracy.
   </div>
 </div>
