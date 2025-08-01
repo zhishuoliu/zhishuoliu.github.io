@@ -130,8 +130,7 @@ A Flask-based web service that converts PowerPoint presentations into natural sp
 - Oct. 2022, **2nd Prize (National Level)** – CUMCM  
 - Oct. 2022, **1st Prize (Provincial Level)** – CUMCM  
 - Jun. 2022, **Silver Award (University Level)** – Internet+ Innovation Competition  
-- Feb. 2022, **Successful Participant** – MCM/ICM  
-- Nov. 2021, **3rd Prize** – Asia-Pacific Modeling Contest  
+- Nov. 2021, **2rd Prize** – Asia-Pacific Modeling Contest  
 - Oct. 2021, **3rd Prize** – Greater Bay Area Financial Math Modeling
 
 
@@ -144,8 +143,7 @@ A Flask-based web service that converts PowerPoint presentations into natural sp
 ## About Me
 
 - **Skills**: Python, C/C++, MATLAB, R, PyTorch, TensorFlow, Linux, CUDA  
-- **Languages**: Mandarin (Native), English (Proficient)  
-- **Extracurricular**: Vice President – JNU Photography Association; Publicity – J-BJI Student Union
+- **Languages**: English (Proficient), Chinese (Native), Mandarin (Native)  
 
 ---
 
