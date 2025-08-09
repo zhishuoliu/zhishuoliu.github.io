@@ -18,7 +18,7 @@ In 2024, I completed a research thesis titled **"Efficient Mesh Reconstruction f
 
 More broadly, I enjoy combining **computational geometry**, **deep learning**, and **vision-based modeling**, and I am passionate about building systems that bridge the gap between **geometry and generation**.
 
-📫 Feel free to reach me at: ethanliu020@outlook.com
+📫 Feel free to reach me at: ethanliu020 [AT] outlook.com
 
 ---
 
