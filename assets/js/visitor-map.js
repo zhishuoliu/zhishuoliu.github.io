@@ -17,14 +17,58 @@ class VisitorMap {
 
     async init() {
         try {
+            // Check if Leaflet is available
+            if (typeof L === 'undefined') {
+                console.warn('Leaflet.js not available, using fallback map');
+                this.createFallbackMap();
+                return;
+            }
+
             // Initialize the map
-            this.map = L.map(this.containerId).setView([20, 0], 2);
+            this.map = L.map(this.containerId).setView([35, 105], 4); // Center on China
             
-            // Add OpenStreetMap tiles
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-                maxZoom: 18
-            }).addTo(this.map);
+            // Add map tiles - Using multiple tile providers for better China access
+            const tileProviders = [
+                {
+                    name: 'CartoDB',
+                    url: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+                    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/attributions">CARTO</a>'
+                },
+                {
+                    name: 'OpenStreetMap',
+                    url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                },
+                {
+                    name: 'Esri',
+                    url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
+                    attribution: 'Tiles © <a href="https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer">Esri</a>'
+                }
+            ];
+
+            // Try to add the first available tile layer
+            let tileLayerAdded = false;
+            for (const provider of tileProviders) {
+                try {
+                    L.tileLayer(provider.url, {
+                        attribution: provider.attribution,
+                        maxZoom: 18
+                    }).addTo(this.map);
+                    tileLayerAdded = true;
+                    console.log(`Successfully loaded ${provider.name} tiles`);
+                    break;
+                } catch (error) {
+                    console.warn(`Failed to load ${provider.name} tiles:`, error);
+                    continue;
+                }
+            }
+
+            if (!tileLayerAdded) {
+                // Fallback: create a simple map without tiles
+                console.warn('All tile providers failed, creating fallback map');
+                this.createFallbackMap();
+                return;
+            }
 
             // Load existing visitor data from API
             await this.loadVisitorData();
@@ -34,6 +78,60 @@ class VisitorMap {
             
         } catch (error) {
             console.error('Error initializing visitor map:', error);
+            this.createFallbackMap();
+        }
+    }
+
+    createFallbackMap() {
+        // Create a simple fallback map when tile providers fail
+        const mapContainer = document.getElementById(this.containerId);
+        if (mapContainer) {
+            mapContainer.innerHTML = `
+                <div style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); 
+                            height: 100%; 
+                            display: flex; 
+                            align-items: center; 
+                            justify-content: center; 
+                            border-radius: 8px;
+                            color: #2c3e50;
+                            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                            position: relative;
+                            overflow: hidden;">
+                    
+                    <!-- Simple world map background -->
+                    <div style="position: absolute; 
+                                top: 50%; 
+                                left: 50%; 
+                                transform: translate(-50%, -50%);
+                                width: 80%; 
+                                height: 60%; 
+                                background: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1000 500\"><path d=\"M 100,200 Q 150,180 200,200 T 300,200 Q 350,220 400,200 T 500,200 Q 550,180 600,200 T 700,200 Q 750,220 800,200 T 900,200\" stroke=\"%23bdc3c7\" stroke-width=\"2\" fill=\"none\"/><path d=\"M 150,300 Q 200,280 250,300 T 350,300 Q 400,320 450,300 T 550,300 Q 600,280 650,300 T 750,300 Q 800,320 850,300\" stroke=\"%23bdc3c7\" stroke-width=\"2\" fill=\"none\"/><circle cx=\"200\" cy=\"150\" r=\"3\" fill=\"%23e74c3c\"/><circle cx=\"400\" cy=\"180\" r=\"3\" fill=\"%23e74c3c\"/><circle cx=\"600\" cy=\"160\" r=\"3\" fill=\"%23e74c3c\"/><circle cx=\"800\" cy=\"170\" r=\"3\" fill=\"%23e74c3c\"/></svg>') no-repeat center center;
+                                background-size: contain;
+                                opacity: 0.3;">
+                    </div>
+                    
+                    <div style="text-align: center; z-index: 1; position: relative;">
+                        <h3 style="margin: 0 0 10px 0; font-size: 24px;">🌍 Visitor Map</h3>
+                        <p style="margin: 5px 0; font-size: 16px;">Map temporarily unavailable</p>
+                        <p style="margin: 5px 0; font-size: 14px; color: #7f8c8d;">Please check your internet connection</p>
+                        <div style="margin-top: 20px;">
+                            <button onclick="location.reload()" style="
+                                background: #3498db; 
+                                color: white; 
+                                border: none; 
+                                padding: 10px 20px; 
+                                border-radius: 5px; 
+                                cursor: pointer;
+                                font-size: 14px;">
+                                🔄 Retry
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Try to get visitor location even without map
+            this.addCurrentVisitor();
         }
     }
 
@@ -46,58 +144,129 @@ class VisitorMap {
                 // Save visitor data to backend
                 await this.saveVisitorData(visitorInfo);
                 
-                // Add marker to map
-                this.addVisitorMarker(visitorInfo);
+                // Add marker to map if map is available
+                if (this.map) {
+                    this.addVisitorMarker(visitorInfo);
+                } else {
+                    // If no map, show visitor info in fallback
+                    this.showVisitorInfo(visitorInfo);
+                }
             }
         } catch (error) {
             console.error('Error adding current visitor:', error);
         }
     }
 
+    showVisitorInfo(visitorInfo) {
+        // Show visitor info in fallback mode
+        const mapContainer = document.getElementById(this.containerId);
+        if (mapContainer) {
+            const visitorDiv = document.createElement('div');
+            visitorDiv.style.cssText = `
+                position: absolute;
+                bottom: 20px;
+                left: 20px;
+                background: rgba(255, 255, 255, 0.9);
+                padding: 10px;
+                border-radius: 5px;
+                font-size: 12px;
+                color: #2c3e50;
+                z-index: 10;
+            `;
+            visitorDiv.innerHTML = `
+                <strong>📍 Current Visitor:</strong><br>
+                ${visitorInfo.city}, ${visitorInfo.country}<br>
+                <small>${new Date(visitorInfo.timestamp).toLocaleString()}</small>
+            `;
+            mapContainer.appendChild(visitorDiv);
+        }
+    }
+
     async getVisitorLocation() {
         try {
-            // Use ipapi.co for IP geolocation (free tier)
-            const response = await fetch('https://ipapi.co/json/');
-            const data = await response.json();
-            
-            if (data.latitude && data.longitude) {
-                return {
-                    lat: parseFloat(data.latitude),
-                    lng: parseFloat(data.longitude),
-                    city: data.city || 'Unknown',
-                    country: data.country_name || 'Unknown',
-                    ip: data.ip || 'Unknown',
-                    timestamp: new Date().toISOString()
-                };
-            }
-        } catch (error) {
-            console.error('Error getting visitor location:', error);
-            
-            // Fallback: try alternative API
-            try {
-                const response = await fetch('https://ipinfo.io/json');
-                const data = await response.json();
-                
-                if (data.loc) {
-                    const [lat, lng] = data.loc.split(',').map(Number);
-                    return {
-                        lat: lat,
-                        lng: lng,
+            // Try multiple IP geolocation APIs for better reliability
+            const apis = [
+                {
+                    name: 'ipapi.co',
+                    url: 'https://ipapi.co/json/',
+                    parser: (data) => ({
+                        lat: parseFloat(data.latitude),
+                        lng: parseFloat(data.longitude),
                         city: data.city || 'Unknown',
-                        country: data.country || 'Unknown',
+                        country: data.country_name || 'Unknown',
                         ip: data.ip || 'Unknown',
                         timestamp: new Date().toISOString()
-                    };
+                    })
+                },
+                {
+                    name: 'ipinfo.io',
+                    url: 'https://ipinfo.io/json',
+                    parser: (data) => {
+                        if (data.loc) {
+                            const [lat, lng] = data.loc.split(',').map(Number);
+                            return {
+                                lat: lat,
+                                lng: lng,
+                                city: data.city || 'Unknown',
+                                country: data.country || 'Unknown',
+                                ip: data.ip || 'Unknown',
+                                timestamp: new Date().toISOString()
+                            };
+                        }
+                        return null;
+                    }
                 }
-            } catch (fallbackError) {
-                console.error('Fallback API also failed:', fallbackError);
+            ];
+
+            // Try each API until one works
+            for (const api of apis) {
+                try {
+                    console.log(`Trying ${api.name}...`);
+                    const controller = new AbortController();
+                    const timeoutId = setTimeout(() => controller.abort(), 3000); // 3 second timeout
+                    
+                    const response = await fetch(api.url, {
+                        method: 'GET',
+                        signal: controller.signal
+                    });
+                    
+                    clearTimeout(timeoutId);
+                    
+                    if (response.ok) {
+                        const data = await response.json();
+                        const result = api.parser(data);
+                        
+                        if (result && result.lat && result.lng) {
+                            console.log(`Successfully got location from ${api.name}`);
+                            return result;
+                        }
+                    }
+                } catch (error) {
+                    console.warn(`Failed to get location from ${api.name}:`, error);
+                    continue;
+                }
             }
+
+            // If all APIs fail, return a default location (China)
+            console.warn('All IP geolocation APIs failed, using default location');
+            return {
+                lat: 35.8617,
+                lng: 104.1954,
+                city: 'Unknown',
+                country: 'China',
+                ip: 'Unknown',
+                timestamp: new Date().toISOString()
+            };
+            
+        } catch (error) {
+            console.error('Error getting visitor location:', error);
+            return null;
         }
-        
-        return null;
     }
 
     addVisitorMarker(visitorInfo) {
+        if (!this.map) return;
+
         // Create custom icon for visitor marker
         const visitorIcon = L.divIcon({
             className: 'visitor-marker',
@@ -183,12 +352,17 @@ class VisitorMap {
             const data = await response.json();
             this.visitorData = data.visitors;
             
-            // Add markers for visitors
-            this.visitorData.forEach(visitor => {
-                if (visitor.lat && visitor.lng) {
-                    this.addVisitorMarker(visitor);
-                }
-            });
+            // Add markers for visitors if map is available
+            if (this.map) {
+                this.visitorData.forEach(visitor => {
+                    if (visitor.lat && visitor.lng) {
+                        this.addVisitorMarker(visitor);
+                    }
+                });
+            } else {
+                // Show visitor count in fallback mode
+                this.showVisitorCount();
+            }
             
         } catch (error) {
             console.error('Error loading visitor data from API:', error);
@@ -197,18 +371,53 @@ class VisitorMap {
         }
     }
 
+    showVisitorCount() {
+        // Show visitor count in fallback mode
+        const mapContainer = document.getElementById(this.containerId);
+        if (mapContainer && this.visitorData.length > 0) {
+            const countDiv = document.createElement('div');
+            countDiv.style.cssText = `
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                background: rgba(255, 255, 255, 0.9);
+                padding: 10px;
+                border-radius: 5px;
+                font-size: 12px;
+                color: #2c3e50;
+                z-index: 10;
+            `;
+            countDiv.innerHTML = `
+                <strong>👥 Total Visitors:</strong><br>
+                ${this.visitorData.length} visitors<br>
+                <small>from ${this.getUniqueCountries()} countries</small>
+            `;
+            mapContainer.appendChild(countDiv);
+        }
+    }
+
+    getUniqueCountries() {
+        const countries = new Set(this.visitorData.map(v => v.country).filter(c => c !== 'Unknown'));
+        return countries.size;
+    }
+
     loadFromLocalStorage() {
         try {
             const stored = localStorage.getItem('visitorMapData');
             if (stored) {
                 this.visitorData = JSON.parse(stored);
                 
-                const recentVisitors = this.visitorData.slice(-20);
-                recentVisitors.forEach(visitor => {
-                    if (visitor.lat && visitor.lng) {
-                        this.addVisitorMarker(visitor);
-                    }
-                });
+                if (this.map) {
+                    const recentVisitors = this.visitorData.slice(-20);
+                    recentVisitors.forEach(visitor => {
+                        if (visitor.lat && visitor.lng) {
+                            this.addVisitorMarker(visitor);
+                        }
+                    });
+                } else {
+                    // Show visitor count in fallback mode
+                    this.showVisitorCount();
+                }
             }
         } catch (error) {
             console.error('Error loading visitor data:', error);
