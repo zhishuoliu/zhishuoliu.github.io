@@ -44,6 +44,16 @@ export default async function handler(req, res) {
     if (req.method === 'POST') {
       // 添加新访问者
       const visitorData = req.body;
+
+      // Derive IP from headers if missing
+      if (!visitorData.ip) {
+        const xff = req.headers['x-forwarded-for'];
+        const remote = req.socket && req.socket.remoteAddress;
+        const derived = Array.isArray(xff)
+          ? xff[0]
+          : (typeof xff === 'string' && xff.split(',')[0].trim()) || remote || '';
+        if (derived) visitorData.ip = derived;
+      }
       
       // 验证数据
       if (!visitorData.lat || !visitorData.lng || !visitorData.ip) {

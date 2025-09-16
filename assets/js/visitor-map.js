@@ -6,6 +6,7 @@ class VisitorMap {
         this.markers = [];
         this.visitorData = [];
         this.apiUrl = 'https://vercel-backend-9w0hni4ja-zhishuo-lius-projects.vercel.app/api/visitors';
+        this.geoApiUrl = this.apiUrl.replace('/api/visitors', '/api/geo');
         
         // Initialize map when DOM is loaded
         if (document.readyState === 'loading') {
@@ -187,6 +188,18 @@ class VisitorMap {
             // Try multiple IP geolocation APIs for better reliability
             const apis = [
                 {
+                    name: 'server-geo',
+                    url: this.geoApiUrl,
+                    parser: (data) => ({
+                        lat: parseFloat(data.lat),
+                        lng: parseFloat(data.lng),
+                        city: data.city || 'Unknown',
+                        country: data.country || 'Unknown',
+                        ip: data.ip || 'Unknown',
+                        timestamp: data.timestamp || new Date().toISOString()
+                    })
+                },
+                {
                     name: 'ipapi.co',
                     url: 'https://ipapi.co/json/',
                     parser: (data) => ({
@@ -223,7 +236,8 @@ class VisitorMap {
                 try {
                     console.log(`Trying ${api.name}...`);
                     const controller = new AbortController();
-                    const timeoutId = setTimeout(() => controller.abort(), 3000); // 3 second timeout
+                    const timeoutMs = api.name === 'server-geo' ? 3500 : 3000;
+                    const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
                     
                     const response = await fetch(api.url, {
                         method: 'GET',
